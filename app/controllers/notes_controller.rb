@@ -11,6 +11,7 @@ class NotesController < ApplicationController
         @note = Note.create(
             title: params[:title],
             body: params[:body]
+            user_id: params[:user_id]
         )
         render json: @note
     end
