@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :notes, only: [:index, :show, :create, :update, :destroy]
+  resources :users
+  post '/auth/login', to: 'authentication#login'
 end
