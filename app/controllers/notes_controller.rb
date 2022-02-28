@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
     def index
-        @notes = Note.all
+        @notes = @current_user.notes.all
         render json: @notes
     end
     def show
