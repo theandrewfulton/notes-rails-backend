@@ -10,7 +10,7 @@ class NotesController < ApplicationController
     def create
         @note = Note.create(
             title: params[:title],
-            body: params[:body]
+            body: params[:body],
             user_id: params[:user_id]
         )
         render json: @note
