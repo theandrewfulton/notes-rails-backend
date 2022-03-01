@@ -1,20 +1,17 @@
 class NotesController < ApplicationController
+    before_action :set_note, only: [:show, :update, :destroy]
+
+    # show user's notes
     def index
         @notes = @current_user.notes.all
         render json: @notes
     end
+    # /notes/{:id}
     def show
-        @note = Note.find(params[:id])
         render json: @note
     end
+    # create a note
     def create
-        # @note = Note.create(
-        #     title: params[:title],
-        #     body: params[:body],
-        #     user_id: params[:user_id]
-        # )
-        # render json: @note
-
         @note = @current_user.notes.new(
             title: params[:title],
             body: params[:body]
@@ -26,18 +23,25 @@ class NotesController < ApplicationController
         end
 
     end
+    # update a note
     def update
-        @note = Note.find(params[:id])
-        @note.update(
+        if @note.update(
             title: params[:title],
             body: params[:body]
         )
         render json: @note
+        else
+            render json: @note.errors, status: :unprocessable_entity
+        end
     end
+    # delete a note
     def destroy
-        @notes = Note.all
-        @note = Note.find(params[:id])
         @note.destroy
-        render json: @note
     end
+
+    private
+
+    def set_note
+        @note = @current_user.notes.find(params[:id])
+      end
 end
