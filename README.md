@@ -136,7 +136,7 @@ Run the following commands:
 
 ## Application Architecture Diagram
 
-![application-architecture-diagram](../notes-rails-backend/docs/application-architecture-diagram.png)
+![application-architecture-diagram](docs/application-architecture-diagram.png)
 
 ## User Stories
 
