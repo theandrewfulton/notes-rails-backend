@@ -79,9 +79,9 @@ Please note the following notes were tested on Linux and should also work for ma
 
 ## Frontend
 
-[Install Node.js](https://nodejs.org/en/)
+[Install Node.js](https://nodejs.org/en/) or [via NodeSource](https://github.com/nodesource/distributions/blob/master/README.md) if using a package manager in Linux
 
-[Install Yarn](https://yarnpkg.com/) (or just use npm - which ships with Node.js)
+[Install Yarn](https://yarnpkg.com/getting-started/install) (or just use npm - which ships with Node.js)
 
 [Install Git](https://git-scm.com/) if you want to clone the repository using the command line and use git for version control
 
@@ -136,7 +136,7 @@ Run the following commands:
 
 ## Application Architecture Diagram
 
-![application-architecture-diagram](docs/application-architecture-diagram.png)
+![application-architecture-diagram](/home/andrew/Documents/Projects/notes-app/frontend/notes-frontend/docs/application-architecture-diagram.png)
 
 ## User Stories
 
