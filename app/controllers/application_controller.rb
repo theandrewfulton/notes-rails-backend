@@ -10,11 +10,10 @@ class ApplicationController < ActionController::API
         header = header.split(" ").last if header
         
         begin
-            decoded = jwt_decode(header)    
+            decoded = jwt_decode(header)
+            @current_user = User.find(decoded[:user_id])    
         rescue
             render json: {error: "You are not logged in"}, status: :forbidden
-        return
-            @current_user = User.find(decoded[:user_id])
         end
         
     end
