@@ -8,7 +8,14 @@ class ApplicationController < ActionController::API
     def authenticate_request
         header = request.headers["Authorization"]
         header = header.split(" ").last if header
-        decoded = jwt_decode(header)
-        @current_user = User.find(decoded[:user_id])
+        
+        begin
+            decoded = jwt_decode(header)    
+        rescue
+            render json: {error: "You are not logged in"}, status: :forbidden
+        return
+            @current_user = User.find(decoded[:user_id])
+        end
+        
     end
 end
